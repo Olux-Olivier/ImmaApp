@@ -1,7 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PatientController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('patient', PatientController::class)->names([
+    'index' => 'patient.index',
+    'create' => 'patient.create',
+    'edit' => 'patient.edit',
+    'update' => 'patient.update',
+]);
