@@ -18,11 +18,17 @@
     /* Les champs prennent 48% de la largeur pour tenir sur deux colonnes */
     form{
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        padding: 20px;
+        padding-top: 20px;
+        padding-left:20px;
+        padding-right:20px;
+        border-radius: 10px;
     }
     .form-group {
       flex: 0 0 40%;
       margin-bottom: 10px;
+    }
+    a{
+        color:white;
     }
 
     /* Sur petits écrans, revenir à une seule colonne */
@@ -143,7 +149,11 @@
 
         <!-- Bouton de soumission -->
         <div class="form-group w-100">
-          <button type="submit" class="btn btn-primary">Soumettre</button>
+          <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+        <!-- Bouton de soumission -->
+        <div class="form-group w-100">
+          <button type="submit" class="btn btn-primary"><a href="#">Précedent</a></button>
         </div>
       </div>
     </form>
