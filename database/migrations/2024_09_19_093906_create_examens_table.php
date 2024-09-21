@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('examens', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
+            $table->string('etat');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

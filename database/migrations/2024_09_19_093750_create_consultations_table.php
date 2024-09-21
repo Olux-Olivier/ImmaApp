@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
+            $table->string('fievre');
+            $table->string('fatigue');
+            $table->string('mauxTete');
+            $table->string('toux');
+            $table->string('frissons');
+            $table->string('diarrhee');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

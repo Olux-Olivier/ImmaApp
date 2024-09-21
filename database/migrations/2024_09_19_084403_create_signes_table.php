@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('signes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
+            $table->float('poids');
+            $table->float('temperature');
+            $table->float('tension');
+            $table->float('taille');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
