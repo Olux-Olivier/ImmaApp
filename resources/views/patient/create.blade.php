@@ -153,7 +153,9 @@
         </div>
         <!-- Bouton de soumission -->
         <div class="form-group w-100">
-          <button type="submit" class="btn btn-primary"><a href="#">Précedent</a></button>
+          <button type="submit" class="btn btn-primary">
+            <a href="{{ url('/taches reception') }}">Précedent</a>
+          </button>
         </div>
       </div>
     </form>

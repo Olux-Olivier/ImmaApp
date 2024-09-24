@@ -22,7 +22,7 @@
 
                 <div>
                     <input type="submit" value="Ajouter">
-                    <a href="#">Retour accueil ?</a>
+                    <a href="{{ url('/taches reception') }}">Retour accueil ?</a>
                 </div>
     
             </form>

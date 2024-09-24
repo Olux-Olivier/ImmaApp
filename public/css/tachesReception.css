@@ -1,0 +1,71 @@
+*body{
+    padding: 0;
+    margin: 0;
+    font-family: "comfortaa";
+}
+
+body .header{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+body .header .logo{
+    display: flex;
+    margin-left: 60px;
+    margin-top: 6px;
+}
+
+body .header .logo h2{
+    font-family: "comfortaa";
+    margin: 0;
+    margin-top: 5px;
+}
+
+body .header .logo h2 span{
+    color: #0673D2;
+}
+
+body .header .logo .image{
+    height: 40px;
+    width: 40px;
+}
+body .header .logo .image img{
+    height: 100%;
+    width: 100%;
+}
+
+body .header .liens{
+    display: flex;
+    justify-content: space-between;
+}
+
+body .header .liens p{
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 0;
+    margin-top: 10px;
+    font-family: "comfortaa";
+}
+
+body .header .liens .initial{
+    background: black;
+    color: white;
+    padding: 5px;
+}
+
+body .header .liens .nom, body .header .liens .bouton{
+    margin-top: 15px;
+}
+body .header .liens .bouton a{
+   border: 1px solid #0673D2;
+   padding: 10px 20px;
+   text-decoration: none;
+   color: #0673D2;
+   border-radius: 8px;
+}
+body .header .liens .bouton a:hover{
+    background: #0673D2;
+    color: white;
+}

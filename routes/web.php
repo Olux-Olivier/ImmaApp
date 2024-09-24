@@ -21,3 +21,7 @@ Route::resource('medicament', MedicamentController::class)->names([
     'edit' => 'medicament.edit',
     'update' => 'medicament.update',
 ]);
+
+Route::get('/taches reception', function () {
+    return view('receptionniste.index');
+});
