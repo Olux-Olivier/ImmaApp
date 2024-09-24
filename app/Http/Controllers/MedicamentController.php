@@ -20,7 +20,7 @@ class MedicamentController extends Controller
      */
     public function create()
     {
-        //
+        return view('medicament.create');
     }
 
     /**
