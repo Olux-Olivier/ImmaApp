@@ -23,13 +23,8 @@
     </section>
 
     <section class="main">
-        <div>
-            <a href="{{ url('/medicament/create') }}">Ajouter medicament</a>
-        </div>
-
-        <div>
-            <a href="{{ url('/patient/create') }}">Identifier Patient</a>
-        </div>
+        <a class="medicament" href="{{ url('/medicament/create') }}"></a>
+        <a class="patient" href="{{ url('/patient/create') }}"></a>
     </section>
 </body>
 </html>

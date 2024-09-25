@@ -69,3 +69,22 @@ body .header .liens .bouton a:hover{
     background: #0673D2;
     color: white;
 }
+/* section 2 */
+body .main{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+body .main a{
+    height: 350px;
+    width: 50%;
+    border-radius: 10px;
+}
+
+body .main a:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
