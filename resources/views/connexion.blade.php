@@ -17,11 +17,11 @@
             <form action="" method="POST">
                 @csrf
                 <div>
-                    <input type="email" name="email" placeholder="Email">
+                    <input type="email" autocomplete="off" name="email" placeholder="Email">
                 </div>
 
                 <div>
-                    <input type="text" name="password" placeholder="Password">
+                    <input type="password" autocomplete="off" name="password" placeholder="Password">
                 </div>
 
                 <div>

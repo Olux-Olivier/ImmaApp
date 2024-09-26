@@ -23,8 +23,14 @@
     </section>
 
     <section class="main">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <a class="medicament" href="{{ url('/medicament/create') }}"></a>
         <a class="patient" href="{{ url('/patient/create') }}"></a>
+        <a class="patient" href="{{ route('patient.show_all') }}"></a>
     </section>
 </body>
 </html>

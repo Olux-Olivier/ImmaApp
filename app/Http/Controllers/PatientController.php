@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PatientRequest;
 use App\Models\Patient;
+use App\Models\Signe;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -12,7 +14,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -26,9 +28,12 @@ class PatientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PatientRequest $request)
     {
-        //
+
+        Patient::create($request->validated());
+        return redirect()->route('receptioniste.index')
+            ->with('success', 'Patient enregistrer avec succes');
     }
 
     /**
@@ -39,6 +44,19 @@ class PatientController extends Controller
         //
     }
 
+    public function show_all(){
+        $patients = Patient::orderBy('created_at', 'desc')->get();
+        $signes = Signe::orderBy('created_at', 'desc')->get();
+
+        foreach ($patients as $patient) {
+            foreach ($signes as $signe) {
+                if($patient->id == $signe->patient_id){
+                    $patient['prelever'] = 'oui';
+                }
+            }
+        }
+        return view('patient.liste', compact('patients', ));
+    }
     /**
      * Show the form for editing the specified resource.
      */

@@ -21,21 +21,25 @@ Route::get('/taches-reception', function () {
 })->name('receptionniste.index');
 
 Route::resource('infirmier', InfirmierController::class);
+Route::get('/prelever/{id}', [InfirmierController::class, 'prelever'])->name('infirmier.prelever');
 
 Route::resource('laboratain', \App\Http\Controllers\LaboratainController::class);
 
 Route::resource('medecin',\App\Http\Controllers\MedecinController::class);
 
 Route::resource('receptioniste', \App\Http\Controllers\ReceptionisteController::class);
+Route::get('/listes-patients', [App\Http\Controllers\PatientController::class, 'show_all'])->name('patient.show_all');
 
 
 Route::get('/users', function () {
+
     \App\Models\User::create([
         'name' => 'Gopher Kaseya',
         'role' => '1',
         'email' => 'gopher@gopher.com',
         'password' => Hash::make('gopher')
     ]);
+
     \App\Models\User::create([
         'name' => 'John Doe',
         'role' => '2',

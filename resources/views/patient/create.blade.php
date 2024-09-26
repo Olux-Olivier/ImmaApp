@@ -12,7 +12,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      
+
     }
 
     /* Les champs prennent 48% de la largeur pour tenir sur deux colonnes */
@@ -42,7 +42,7 @@
 <body>
   <div class="container mt-5">
     <h4 class="text-center mb-4">Identifier patient</h4>
-    
+
     <form action="/patient" method="POST">
       @csrf
 
@@ -50,7 +50,7 @@
         <!-- Nom -->
         <div class="form-group">
           <label for="nom" class="form-label">Nom</label>
-          <input type="text" class="form-control @error('nom') is-invalid @enderror" id="nom" name="nom" required>
+          <input type="text" class="form-control @error('nom') is-invalid @enderror" id="nom" name="nom" value="{{old('nom')}}" required>
           @error('nom')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -59,7 +59,7 @@
         <!-- Post-nom -->
         <div class="form-group">
           <label for="postnom" class="form-label">Post-nom</label>
-          <input type="text" class="form-control @error('postnom') is-invalid @enderror" id="postnom" name="postnom" required>
+          <input type="text" class="form-control @error('postnom') is-invalid @enderror" id="postnom" value="{{old('postnom')}}" name="postnom" required>
           @error('postnom')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -68,7 +68,7 @@
         <!-- Prénom -->
         <div class="form-group">
           <label for="prenom" class="form-label">Prénom</label>
-          <input type="text" class="form-control @error('prenom') is-invalid @enderror" id="prenom" name="prenom" required>
+          <input type="text" class="form-control @error('prenom') is-invalid @enderror" id="prenom"value="{{old('prenom')}}" name="prenom" required>
           @error('prenom')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -77,7 +77,7 @@
         <!-- Profession -->
         <div class="form-group">
           <label for="profession" class="form-label">Profession</label>
-          <input type="text" class="form-control @error('profession') is-invalid @enderror" id="profession" name="profession" required>
+          <input type="text" class="form-control @error('profession') is-invalid @enderror" id="profession" value="{{old('profession')}}" name="profession" required>
           @error('profession')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -86,7 +86,7 @@
         <!-- Date de naissance -->
         <div class="form-group">
           <label for="date_naissance" class="form-label">Date de naissance</label>
-          <input type="date" class="form-control @error('date_naissance') is-invalid @enderror" id="date_naissance" name="date_naissance" required>
+          <input type="date" class="form-control @error('date_naissance') is-invalid @enderror" id="date_naissance" value="{{old('date_naissance')}}" name="date_naissance" required>
           @error('date_naissance')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -95,7 +95,7 @@
         <!-- Nationalité -->
         <div class="form-group">
           <label for="nationalite" class="form-label">Nationalité</label>
-          <input type="text" class="form-control @error('nationalite') is-invalid @enderror" id="nationalite" name="nationalite" required>
+          <input type="text" class="form-control @error('nationalite') is-invalid @enderror" id="nationalite" value="{{old('nationalite')}}" name="nationalite" required>
           @error('nationalite')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -104,7 +104,7 @@
         <!-- Âge -->
         <div class="form-group">
           <label for="age" class="form-label">Âge</label>
-          <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" name="age" required>
+          <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" value="{{old('age')}}" name="age" required>
           @error('age')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -141,7 +141,7 @@
         <!-- Numéro du partenaire confident/informé -->
         <div class="form-group">
           <label for="num_partenaire" class="form-label">Numéro du partenaire confident/informé</label>
-          <input type="tel" class="form-control @error('num_partenaire') is-invalid @enderror" id="num_partenaire" name="num_partenaire" required>
+          <input type="tel" class="form-control @error('num_partenaire') is-invalid @enderror" id="num_partenaire" value="{{old('num_partenaire')}}" name="num_partenaire" required>
           @error('num_partenaire')
             <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -154,7 +154,7 @@
         <!-- Bouton de soumission -->
         <div class="form-group w-100">
           <button type="submit" class="btn btn-primary">
-            <a href="{{ url('/taches reception') }}">Précedent</a>
+            <a href="{{ url('/taches-reception') }}">Précedent</a>
           </button>
         </div>
       </div>

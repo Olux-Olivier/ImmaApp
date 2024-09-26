@@ -17,7 +17,7 @@ class AuthController extends Controller
                 return redirect()->intended(route('receptioniste.index'));
             }
             if(Auth::user()->role == 2){
-                return redirect()->intended(route('infirmier.index'));
+                return redirect()->intended(route('patient.show_all'));
             }
             if (Auth::user()->role == 3){
                 return redirect()->intended(route('medecin.index'));
