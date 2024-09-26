@@ -14,21 +14,21 @@
 
         <div class="div_form">
             <h2>Imm<span>App</span></h2>
-            <form action="">
+            <form action="" method="POST">
                 @csrf
                 <div>
-                    <input type="email" placeholder="Email">
+                    <input type="email" name="email" placeholder="Email">
                 </div>
 
                 <div>
-                    <input type="text" placeholder="Password">
+                    <input type="text" name="password" placeholder="Password">
                 </div>
 
                 <div>
-                    <input type="submit" value="Login">
+                    <input type="submit"  value="Login">
                     <a href="#">Mot de passe oublié ?</a>
                 </div>
-    
+
             </form>
         </div>
     </section>
