@@ -31,6 +31,7 @@ Route::get('/consultation/{id}',[\App\Http\Controllers\MedecinController::class,
 Route::post('/consultation',[\App\Http\Controllers\MedecinController::class, 'store_consultation'] );
 Route::get('/prescription/{id}',[\App\Http\Controllers\MedecinController::class, 'prescription'] )->name('medecin.prescription');
 Route::post('/prescription',[\App\Http\Controllers\MedecinController::class, 'store_prescription'] );
+Route::get('/demande-examen/{id}', [\App\Http\Controllers\MedecinController::class, 'demandeExamen'])->name('medecin.demandeExamen');
 
 
 Route::resource('receptioniste', \App\Http\Controllers\ReceptionisteController::class);

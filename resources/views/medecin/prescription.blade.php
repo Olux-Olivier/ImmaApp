@@ -4,6 +4,7 @@
 @endsection
 
 @section('styles_sheet')
+
 @endsection
 
 @section('content')

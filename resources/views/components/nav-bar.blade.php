@@ -7,6 +7,7 @@
     </div>
 
     <div class="liens">
+
         @if(\Illuminate\Support\Facades\Auth::user()->role == 1)
             <p class="initial">Receptionniste</p>
         @endif

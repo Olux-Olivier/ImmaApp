@@ -40,12 +40,14 @@
                 <td>{{ $signe->tension }}</td>
                 <td>{{ $signe->taille }}</td>
                 <td>
+
                     @if($signe->prescription)
                         <bouton class="btn btn-success btn-sm">Deja Prescris</bouton>
                     @else
                         <a href="{{ route('medecin.consultation', $signe->patient_id) }}" class="btn btn-warning btn-sm">Prescription</a>
                         @if($signe->consultation)
                             <bouton  class="btn btn-success btn-sm">Deja consulter</bouton>
+                            <a href="{{ route('medecin.demandeExamen', $signe->patient_id) }}" class="btn btn-warning btn-sm">Demander Examen</a>
                         @else
                             <a href="{{ route('medecin.consultation', $signe->patient_id) }}" class="btn btn-warning btn-sm">Consultation</a>
                        @endif

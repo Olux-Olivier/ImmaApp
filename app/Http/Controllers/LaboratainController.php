@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Consultation;
 use App\Models\Laboratain;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class LaboratainController extends Controller
@@ -12,7 +14,14 @@ class LaboratainController extends Controller
      */
     public function index()
     {
-        //
+        $consultations = Consultation::orderBy('created_at', 'desc')->get();
+        foreach ($consultations as $consultation) {
+            $patient = Patient::find($consultation->patient_id);
+            $consultation['nom'] = $patient->nom;
+            $consultation['postnom'] = $patient->postnom;
+            $consultation['prenom'] = $patient->prenom;
+        }
+        return view('laboratain.index', compact('consultations'));
     }
 
     /**

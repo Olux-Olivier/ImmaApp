@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use App\Models\Examen;
 use App\Models\Medecin;
 use App\Models\Patient;
 use App\Models\Prescription;
@@ -19,25 +20,38 @@ class MedecinController extends Controller
     {
 
         $signes = Signe::orderBy('created_at', 'desc')->get();
+
         foreach ($signes as $signe) {
             $patient = Patient::find($signe->patient_id);
-            $consulation = Consultation::find($signe->patient_id);
-            $prescription = Prescription::find($signe->patient_id);
+            $consulation = Consultation::where('patient_id', $signe->patient_id)->get();
+            $prescription = Prescription::where('patient_id',$signe->patient_id)->get();
+            $examen = Examen::where('patient_id',$signe->patient_id)->get();
+
+
+
             $signe['nom'] = $patient->nom;
             $signe['postnom'] = $patient->postnom;
             $signe['prenom'] = $patient->prenom;
-            if($consulation != null){
-                $signe['consultation'] = true;
+
+            if ($consulation->isEmpty()) {
+                $signe['consulation'] = false;
             }else{
-                $signe['consultation'] = false;
+                $signe['consulation'] = true;
             }
-            if($prescription != null){
-                $signe['prescription'] = true;
+
+            if ($prescription->isEmpty()) {
+               $signe['prescription'] = false;
             }else{
-                $signe['prescription'] = false;
+                $signe['prescription'] = true;
+            }
+            if ($examen->isEmpty()) {
+                $signe['examen'] = false;
+            }else{
+                $signe['examen'] = true;
             }
 
         }
+
         return view('medecin.index', compact('signes'));
     }
 
@@ -63,6 +77,16 @@ class MedecinController extends Controller
         return redirect()->route('medecin.index')->with(['success' => 'Consultation reussie']);
     }
 
+    public function demandeExamen($id)
+    {
+        Examen::create([
+            'patient_id' => $id,
+            'etat' => false,
+            'user_id' => Auth::user()->id,
+        ]);
+
+
+    }
     /**
      * Store a newly created resource in storage.
      */
