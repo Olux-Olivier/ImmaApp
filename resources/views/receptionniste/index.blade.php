@@ -14,7 +14,8 @@
             {{ session('success') }}
         </div>
     @endif
-    <a class="medicament" href="{{ url('/medicament/create') }}"></a>
+    
+    <a class="medicament" href="{{ url('/medicament/create') }}">allo</a>
     <a class="patient" href="{{ url('/patient/create') }}"></a>
     <a class="patient" href="{{ route('patient.show_all') }}"></a>
 
