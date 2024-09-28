@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Consultation extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'patient_id',
+        'fievre',
+        'fatigue',
+        'mauxTete',
+        'toux',
+        'frissons',
+        'diarrhee',
+        'user_id',
+    ];
 }

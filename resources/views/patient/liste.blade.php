@@ -1,27 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Partenaires</title>
-    <link rel="stylesheet" href="{{ asset('css/tachesReception.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<section class="header">
-    <div class="logo">
-        <h2>Imm<span>App</span></h2>
-        <div class="image">
-            <img src="{{ asset('img/logo.png') }}" alt="">
-        </div>
-    </div>
+@extends('base')
+@section('title')
+    Imma app | Liste patients
+@endsection
+@section('styles_sheet')
 
-    <div class="liens">
-        <p class="initial">OK</p>
-        <p class="nom">Olivier Kasongo</p>
-        <p class="bouton"><a href="#">Se deconnecter</a></p>
-    </div>
-</section>
+    <link rel="stylesheet" href="{{ asset('css/tachesReception.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+@endsection
+@section('content')
+
+@include('components.nav-bar')
+
 <div class="container mt-5">
     @if(session('success'))
         <div class="alert alert-success">
@@ -78,7 +67,7 @@
         </tbody>
     </table>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+@endsection

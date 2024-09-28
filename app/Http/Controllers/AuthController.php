@@ -26,5 +26,14 @@ class AuthController extends Controller
                 return redirect()->intended(route('laboratain.index'));
             }
         }
+        return back()->withErrors([
+            'not_found' => 'utilisateur non trouver'
+        ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

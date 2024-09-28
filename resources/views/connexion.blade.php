@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ImmaApp | Connexion</title>
+@extends('base')
+@section('title')
+    Imma app | Connexion
+@endsection
+@section('styles_sheet')
     <link rel="stylesheet" href="{{ asset('css/connexion.css') }}">
-</head>
-<body>
+@endsection
+@section('content')
     <section>
         <div class="div_image">
             <img src="{{ asset('img/connexion.jpg') }}" alt="">
@@ -32,5 +31,6 @@
             </form>
         </div>
     </section>
-</body>
-</html>
+@endsection
+
+

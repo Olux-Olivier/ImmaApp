@@ -1,45 +1,47 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulaire d'identification du patient</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    /* Mise en page pour diviser les champs en deux colonnes */
-    .form-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+@extends('base')
+@section('title')
+    Imma app | Identification Patient
+@endsection
+@section('styles_sheet')
 
-    }
+    <link rel="stylesheet" href="{{ asset('css/tachesReception.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Mise en page pour diviser les champs en deux colonnes */
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
 
-    /* Les champs prennent 48% de la largeur pour tenir sur deux colonnes */
-    form{
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        padding-top: 20px;
-        padding-left:20px;
-        padding-right:20px;
-        border-radius: 10px;
-    }
-    .form-group {
-      flex: 0 0 40%;
-      margin-bottom: 10px;
-    }
-    a{
-        color:white;
-    }
+        }
 
-    /* Sur petits écrans, revenir à une seule colonne */
-    @media (max-width: 768px) {
-      .form-group {
-        flex: 0 0 100%;
-      }
-    }
-  </style>
-</head>
-<body>
+        /* Les champs prennent 48% de la largeur pour tenir sur deux colonnes */
+        form{
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            padding-top: 20px;
+            padding-left:20px;
+            padding-right:20px;
+            border-radius: 10px;
+        }
+        .form-group {
+            flex: 0 0 40%;
+            margin-bottom: 10px;
+        }
+        a{
+            color:white;
+        }
+
+        /* Sur petits écrans, revenir à une seule colonne */
+        @media (max-width: 768px) {
+            .form-group {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+@endsection
+
+@section('content')
+    @include('components.nav-bar')
   <div class="container mt-5">
     <h4 class="text-center mb-4">Identifier patient</h4>
 
@@ -160,8 +162,8 @@
       </div>
     </form>
   </div>
+@endsection
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+@endsection
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
