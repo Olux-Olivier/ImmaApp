@@ -32,7 +32,7 @@ class PatientRequest extends FormRequest
             'age' => 'required',
             'sexe' => 'required',
             'num_partenaire' => 'required',
-
+            'email' => 'required',
         ];
     }
 }

@@ -70,3 +70,7 @@ Route::get('/users', function () {
 
 
 });
+
+// Route::get('/prescrire', function (){
+//     return view('medecin.prescription');
+// });

@@ -18,6 +18,7 @@ class Patient extends Model
         'age',
         'etat_civil',
         'sexe',
-        'num_partenaire'
+        'num_partenaire',
+        'email'
     ];
 }

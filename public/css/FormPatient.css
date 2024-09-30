@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body .bloc_form h4{
+    font-family: "comfortaa";
+    margin-top: 42px;
+}
+body .bloc_form form .bloc_principal{
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body .bloc_form form .bloc_principal .bloc_1 input,
+body .bloc_form form .bloc_principal .bloc_2 input,
+body .bloc_form form .bloc_principal .bloc_3 input,
+body .bloc_form form .bloc_principal .bloc_3 select
+{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    font-family: "comfortaa";
+    margin-top: 40px;
+    transition: border-color 0.3s ease;
+}
+
+body .bloc_form form .bloc_principal .bloc_1 input:focus,
+body .bloc_form form .bloc_principal .bloc_2 input:focus,
+body .bloc_form form .bloc_principal .bloc_3 input:focus,
+body .bloc_form form .bloc_principal .bloc_3 select:focus{
+    border-bottom: 2px solid rgb(6, 115, 210);
+}
+
+body .bloc_form form .actions{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+body .bloc_form form .actions button{
+    border: none;
+    background-color: rgb(6, 115, 210);
+    color: white;
+    padding: 10px 20px;
+    font-family: 'comfortaa';
+    border-bottom-right-radius: 10px;
+}
+
+
+body .bloc_form form .actions button[type='button']{
+    background:rgb(88, 172, 246);
+}
+
+body .bloc_form form .actions button[type='button'] a{
+    color: white;
+    text-decoration: none;
+    font-family: 'comfortaa';
+}
+
+body .bloc_form form .actions button:hover{
+    background:rgb(4, 75, 138);
+}

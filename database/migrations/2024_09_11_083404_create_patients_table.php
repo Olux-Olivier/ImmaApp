@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('date_naissance');
             $table->string('etat_civil');
             $table->string('num_partenaire');
+            $table->string('email');
             $table->timestamps();
         });
     }
