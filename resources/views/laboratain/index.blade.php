@@ -11,6 +11,7 @@
 @section('content')
     @include('components.nav-bar')
     <div class="container mt-5">
+        <h4 style="margin:40px 0;">Consultations en attente d'examens</h4>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -24,6 +25,7 @@
                 <th scope="col">Frissons</th>
                 <th scope="col">Diarrhée</th>
                 <th scope="col">Date de Consultation</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -39,6 +41,7 @@
                     <td>{{ $consultation->frissons }}</td>
                     <td>{{ $consultation->diarrhee }}</td>
                     <td>{{ \Carbon\Carbon::parse($consultation->created_at)->format('d/m/Y') }}</td>
+                    <td><a href="/examen" class="btn btn-success btn-sm">Examiner</a></td>
                 </tr>
             @endforeach
             </tbody>

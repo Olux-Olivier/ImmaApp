@@ -76,6 +76,10 @@ class MedecinController extends Controller
         ]);
         return redirect()->route('medecin.index')->with(['success' => 'Consultation reussie']);
     }
+    
+    public function consultations(){
+        return view('medecin.liste-consultation');
+    }
 
     public function demandeExamen($id)
     {
@@ -84,8 +88,6 @@ class MedecinController extends Controller
             'etat' => false,
             'user_id' => Auth::user()->id,
         ]);
-
-
     }
     /**
      * Store a newly created resource in storage.

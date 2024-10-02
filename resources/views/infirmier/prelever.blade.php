@@ -1,46 +1,39 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de Signe</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+@extends('base')
+@section('title')
+@endsection
 
-<div class="container mt-5">
-    <h2>Enregistrement des Signes</h2>
+@section('styles_sheet')
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/tachesReception.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/FormPrelevement.css') }}">
+    @endsection
+@section('content')
+    @include('components.nav-bar')
+
+<div class="bloc_form">
+    <h4>Prélever Signes</h4>
     <form action="{{ route('infirmier.store') }}" method="POST">
         @csrf
         <input type="hidden" name="patient_id" value="{{$id_patient}}" >
-        <div class="form-group">
-            <label for="poids">Poids (kg)</label>
-            <input type="number" step="0.1" class="form-control" id="poids" name="poids" required>
-        </div>
 
-        <div class="form-group">
-            <label for="temperature">Température (°C)</label>
-            <input type="number" step="0.1" class="form-control" id="temperature" name="temperature" required>
-        </div>
+        <input type="number" step="0.1" id="poids" name="poids" placeholder="Poids (kg)" required>
 
-        <div class="form-group">
-            <label for="tension">Tension arterielle (mmHg)</label>
-            <input type="number" class="form-control" id="tension" name="tension" required>
-        </div>
+        <input type="number" step="0.1" id="temperature" name="temperature" placeholder="Température (°C)" required>
 
-        <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
+        <input type="number" id="tension" name="tension" placeholder="Tension artérielle (mmHg)" required>
 
-        <div class="form-group">
-            <label for="taille">Taille (cm)</label>
-            <input type="number" class="form-control" id="taille" name="taille" required>
-        </div>
+        <input type="hidden" name="user_id" value="{{ \Illuminate\Support\Facades\Auth::user()->id }}">
 
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <input type="number" id="taille" name="taille" placeholder="Taille (cm)" required>
+
+        <button type="submit">Enregistrer</button>
     </form>
+    <a href="#" class="precedent">Précédent</a>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+
+@endsection
+
+@section('scripts')
+@endsection
+

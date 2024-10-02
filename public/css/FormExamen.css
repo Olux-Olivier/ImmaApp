@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ body .bloc_form{
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 130px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+ }
+ body .bloc_form h4{
+    font-family: 'comfortaa';
+    text-align: center;
+ }
+ body .bloc_form form{
+
+ }
+ body .bloc_form form select{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    font-family: "comfortaa";
+    margin-top: 40px;
+    transition: border-color 0.3s ease;
+ }
+
+ body .bloc_form form select:focus{
+    border-bottom: 2px solid rgb(6, 115, 210);
+ }
+
+ body .bloc_form form button{
+    background: rgb(6, 115, 210);
+    width: 100%;
+    color: white;
+    font-family: 'comfortaa';
+    padding: 8px 0;
+    border-radius: 5px;
+    border: none;
+
+ }
+ body .bloc_form .precedent{
+    text-decoration: none;
+    color: black;
+    font-family: 'comfortaa';
+    margin-top: 20px;
+    display: block;
+
+ }
+
+ body .bloc_form .precedent:hover{
+    color: rgb(6, 115, 210);
+    text-decoration: underline;
+ }

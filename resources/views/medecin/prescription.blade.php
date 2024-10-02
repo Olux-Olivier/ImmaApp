@@ -4,35 +4,37 @@
 @endsection
 
 @section('styles_sheet')
-
+    <link rel="stylesheet" href="{{ asset('css/tachesReception.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/FormPrescription.css') }}">
 @endsection
 
 @section('content')
 
     @include('components.nav-bar')
+<div class="bloc_form">
+<h4>Formulaire de prescription</h4>
+<form method="POST" action="/submit-form">
+    <!-- Médicament (Select multiple choix) -->
+    <select name="medicament[]" id="medicament" multiple required>
+        <option value="" disabled>Choisissez le(s) médicament(s)</option>
+        <option value="medicament1">Médicament 1</option>
+        <option value="medicament2">Médicament 2</option>
+        <option value="medicament3">Médicament 3</option>
+        <option value="medicament4">Médicament 4</option>
+    </select>
 
-    <form method="POST" action="/submit-form">
-        <!-- Médicament -->
-        <div class="form-group mb-3">
-            <label for="medicament">Médicament</label>
-            <input type="text" class="form-control" id="medicament" name="medicament" placeholder="Entrez le nom du médicament" required>
-        </div>
+    <!-- Période (jours) -->
+    <input type="number" id="periode" name="periode" placeholder="Période en jours" required>
 
-        <!-- Période -->
-        <div class="form-group mb-3">
-            <label for="periode">Période (jours)</label>
-            <input type="number" class="form-control" id="periode" name="periode" placeholder="Entrez la période en jours" required>
-        </div>
+    <!-- Heure (intervalle en heures) -->
+    <input type="number" id="heure" name="heure" placeholder="Heure de prise" required>
 
-        <!-- Heure -->
-        <div class="form-group mb-3">
-            <label for="heure">Heure (intervalle en heures)</label>
-            <input type="number" class="form-control" id="heure" name="heure" placeholder="Entrez l'intervalle en heures" required>
-        </div>
+    <!-- Bouton de soumission -->
+    <button type="submit">Enregistrer</button>
+</form>
+<a href="#" class="precedent">Précédent</a>
 
-        <!-- Bouton de soumission -->
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-    </form>
+</div>
 
 @endsection
 

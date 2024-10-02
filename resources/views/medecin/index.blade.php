@@ -15,7 +15,7 @@
             </div>
         @endif
     <table class="table table-striped table-bordered">
-        <h2 class="text-center">Liste des Patients</h2>
+        <h2 class="text-center">Prelevements en attente de consultation</h2>
         <thead>
         <tr>
             <th>ID</th>
@@ -55,7 +55,11 @@
         @endforeach
         </tbody>
     </table>
+
+    <a href="/consultations" style="color:black;font-family:'comfortaa';">Voir les consultations dejà faites</a>
     </div>
+
+    
 
 @endsection
 @section('scripts')

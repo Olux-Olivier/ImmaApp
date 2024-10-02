@@ -6,6 +6,12 @@ body .bloc_form h4{
     font-family: "comfortaa";
     margin-top: 42px;
 }
+
+body .bloc_form .titre_consultation{
+    font-family: "comfortaa";
+   margin-left: 60px;
+}
+
 body .bloc_form form .bloc_principal{
     display: flex;
     width: 90%;
@@ -16,6 +22,8 @@ body .bloc_form form .bloc_principal{
 body .bloc_form form .bloc_principal .bloc_1 input,
 body .bloc_form form .bloc_principal .bloc_2 input,
 body .bloc_form form .bloc_principal .bloc_3 input,
+body .bloc_form form .bloc_principal .bloc_1 select,
+body .bloc_form form .bloc_principal .bloc_2 select,
 body .bloc_form form .bloc_principal .bloc_3 select
 {
     width: 60%;
