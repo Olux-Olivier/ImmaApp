@@ -11,9 +11,10 @@
         <div class="bloc_menu">
             <h2>ImmApp</h2>
             <div>
-                <a href="#">lien</a>
-                <a href="#">lien</a>
-                <a href="#">lien</a>
+                <a href="{{ route('medecin.index')}}">Voir les prelements</a>
+                <a href="{{ route('medecin.consultations') }}">Voir les consultations</a>
+                <a href="#">Voir les examens attente</a>
+                <a href="#">Voir les examens faits</a>
                 <a href="#">lien</a>
             </div>
         </div>

@@ -42,7 +42,7 @@
                     <td>
                         <a href="{{ route('medecin.prescription', $consultation->patient_id) }}" class="btn btn-success btn-sm">Prescrire medicament</a>
 
-                        <a href="/examen" class="btn btn-success btn-sm">Demander Examen</a>
+                        <a href="/demande-examen/{{$consultation->patient_id}}" class="btn btn-success btn-sm">Demander Examen</a>
                 </tr>
 
 

@@ -104,7 +104,7 @@ class MedecinController extends Controller
                 'user_id' => Auth::user()->id,
             ]);
         }
-        return to_route('medecin.index');
+        return to_route('medecin.consultations');
     }
 
     public function prescription($id)

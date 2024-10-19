@@ -30,9 +30,7 @@ Route::get('/examen', function(){
 });
 
 Route::resource('medecin',\App\Http\Controllers\MedecinController::class);
-Route::get('/dashboard-medecin', function(){
-    return view('medecin.dashboard-medecin');
-});
+Route::get('/dashboard-medecin', function(){ return view('medecin.dashboard');})->name('medecin.dashboard');
 Route::get('/consultation/{id}',[\App\Http\Controllers\MedecinController::class, 'consultation'] )->name('medecin.consultation');
 Route::post('/consultation',[\App\Http\Controllers\MedecinController::class, 'store_consultation'] );
 Route::get('/prescription/{id}',[\App\Http\Controllers\MedecinController::class, 'prescription'] )->name('medecin.prescription');
@@ -41,7 +39,7 @@ Route::get('/prescriptions', [\App\Http\Controllers\MedecinController::class, 'p
 Route::post('/prescription',[\App\Http\Controllers\MedecinController::class, 'store_prescription'] );
 Route::get('/demande-examen/{id}', [\App\Http\Controllers\MedecinController::class, 'demandeExamen'])->name('medecin.demandeExamen');
 
-Route::get('/consultations',[\App\Http\Controllers\MedecinController::class, 'consultations']);
+Route::get('/consultations',[\App\Http\Controllers\MedecinController::class, 'consultations'])->name('medecin.consultations');
 
 Route::resource('receptioniste', \App\Http\Controllers\ReceptionisteController::class);
 Route::get('/listes-patients', [App\Http\Controllers\PatientController::class, 'show_all'])->name('patient.show_all');
@@ -85,6 +83,3 @@ Route::get('/form-prescrire', function (){
 
 Route::get('/make-call',[\App\Http\Controllers\TwilioController::class, 'makeCall']);
 
-Route::get('/dash-medecin', function(){
-    return view('medecin.dashboard');
-});
