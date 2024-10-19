@@ -30,7 +30,6 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request)
     {
-
         Patient::create($request->validated());
         return redirect()->route('receptioniste.index')
             ->with('success', 'Patient enregistrer avec succes');

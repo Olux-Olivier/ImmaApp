@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use App\Models\Examen;
 use App\Models\Laboratain;
 use App\Models\Patient;
 use Illuminate\Http\Request;
@@ -14,14 +15,23 @@ class LaboratainController extends Controller
      */
     public function index()
     {
-        $consultations = Consultation::orderBy('created_at', 'desc')->get();
-        foreach ($consultations as $consultation) {
-            $patient = Patient::find($consultation->patient_id);
-            $consultation['nom'] = $patient->nom;
-            $consultation['postnom'] = $patient->postnom;
-            $consultation['prenom'] = $patient->prenom;
+        $examens = Examen::orderBy('created_at', 'desc')->get();
+
+
+        foreach ($examens as $examen) {
+            $patient = Patient::find($examen->patient_id);
+            $consultation = Consultation::where('patient_id', $examen->patient_id)->first();
+            $examen['nom'] = $patient->nom;
+            $examen['postnom'] = $patient->postnom;
+            $examen['prenom'] = $patient->prenom;
+            $examen['fievre'] = $consultation->fievre ;
+            $examen['fatigue'] = $consultation->fatigue;
+            $examen['mauxTeste'] = $consultation->mauxTete;
+            $examen['toux'] = $consultation->toux ;
+            $examen['frissons'] = $consultation->frissons;
+            $examen['diarrhee'] = $consultation->diarrhee;
         }
-        return view('laboratain.index', compact('consultations'));
+        return view('laboratain.index', compact('examens'));
     }
 
     /**

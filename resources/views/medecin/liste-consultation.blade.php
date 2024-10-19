@@ -28,22 +28,27 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach($consultations as $consultation)
                 <tr>
-                    <td>Kabamba</td>
-                    <td>Mbuyi</td>
-                    <td>Jean</td>
-                    <td>Oui</td>
-                    <td>Non</td>
-                    <td>Oui</td>
-                    <td>Non</td>
-                    <td>Oui</td>
-                    <td>Non</td>
+                    <td>{{$consultation->nom}}</td>
+                    <td>{{$consultation->postnom}}</td>
+                    <td>{{$consultation->prenom}}</td>
+                    <td>{{$consultation->fievre}}</td>
+                    <td>{{$consultation->fatigue}}</td>
+                    <td>{{$consultation->mauxTete}}</td>
+                    <td>{{$consultation->toux}}</td>
+                    <td>{{$consultation->frissons}}</td>
+                    <td>{{$consultation->diarrhee}}</td>
                     <td>
-                    <a href="{{ url('/form-prescrire') }}" class="btn btn-success btn-sm">Prescrire medicament</a>
-                    
-                    <a href="/examen" class="btn btn-success btn-sm">Demander Examen</a>
-                    </tr>
-                
+                        <a href="{{ route('medecin.prescription', $consultation->patient_id) }}" class="btn btn-success btn-sm">Prescrire medicament</a>
+
+                        <a href="/examen" class="btn btn-success btn-sm">Demander Examen</a>
+                </tr>
+
+
+            @endforeach
+
+
             </tbody>
         </table>
     </div>

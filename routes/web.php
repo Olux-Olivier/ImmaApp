@@ -37,6 +37,8 @@ Route::get('/consultation/{id}',[\App\Http\Controllers\MedecinController::class,
 Route::post('/consultation',[\App\Http\Controllers\MedecinController::class, 'store_consultation'] );
 Route::get('/prescription/{id}',[\App\Http\Controllers\MedecinController::class, 'prescription'] )->name('medecin.prescription');
 Route::post('/prescription',[\App\Http\Controllers\MedecinController::class, 'store_prescription'] );
+Route::get('/prescriptions', [\App\Http\Controllers\MedecinController::class, 'prescriptions'] )->name('medecin.prescriptions');
+Route::post('/prescription',[\App\Http\Controllers\MedecinController::class, 'store_prescription'] );
 Route::get('/demande-examen/{id}', [\App\Http\Controllers\MedecinController::class, 'demandeExamen'])->name('medecin.demandeExamen');
 
 Route::get('/consultations',[\App\Http\Controllers\MedecinController::class, 'consultations']);
@@ -79,3 +81,6 @@ Route::get('/users', function () {
 Route::get('/form-prescrire', function (){
     return view('medecin.prescription');
 });
+
+
+Route::get('/make-call',[\App\Http\Controllers\TwilioController::class, 'makeCall']);

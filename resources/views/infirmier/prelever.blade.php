@@ -24,7 +24,7 @@
 
         <input type="hidden" name="user_id" value="{{ \Illuminate\Support\Facades\Auth::user()->id }}">
 
-        <input type="number" id="taille" name="taille" placeholder="Taille (cm)" required>
+        <input type="number" step="0.01" id="taille" name="taille" placeholder="Taille (cm)" required>
 
         <button type="submit">Enregistrer</button>
     </form>

@@ -29,18 +29,18 @@
             </tr>
             </thead>
             <tbody>
-            @foreach ($consultations as $consultation)
+            @foreach ($examens as $examen)
                 <tr>
-                    <td>{{ $consultation->nom }}</td>
-                    <td>{{ $consultation->postnom }}</td>
-                    <td>{{ $consultation->prenom }}</td>
-                    <td>{{ $consultation->fievre }}</td>
-                    <td>{{ $consultation->fatigue }}</td>
-                    <td>{{ $consultation->mauxTete }}</td>
-                    <td>{{ $consultation->toux }}</td>
-                    <td>{{ $consultation->frissons }}</td>
-                    <td>{{ $consultation->diarrhee }}</td>
-                    <td>{{ \Carbon\Carbon::parse($consultation->created_at)->format('d/m/Y') }}</td>
+                    <td>{{ $examen->nom }}</td>
+                    <td>{{ $examen->postnom }}</td>
+                    <td>{{ $examen->prenom }}</td>
+                    <td>{{ $examen->fievre }}</td>
+                    <td>{{ $examen->fatigue }}</td>
+                    <td>{{ $examen->mauxTete }}</td>
+                    <td>{{ $examen->toux }}</td>
+                    <td>{{ $examen->frissons }}</td>
+                    <td>{{ $examen->diarrhee }}</td>
+                    <td>{{ \Carbon\Carbon::parse($examen->created_at)->format('d/m/Y') }}</td>
                     <td><a href="/examen" class="btn btn-success btn-sm">Examiner</a></td>
                 </tr>
             @endforeach

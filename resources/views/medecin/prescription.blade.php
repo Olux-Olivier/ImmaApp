@@ -11,28 +11,28 @@
 @section('content')
 
     @include('components.nav-bar')
+
 <div class="bloc_form">
 <h4>Formulaire de prescription</h4>
-<form method="POST" action="/submit-form">
-    <!-- Médicament (Select multiple choix) -->
-    <select name="medicament[]" id="medicament" multiple required>
-        <option value="" disabled>Choisissez le(s) médicament(s)</option>
-        <option value="medicament1">Médicament 1</option>
-        <option value="medicament2">Médicament 2</option>
-        <option value="medicament3">Médicament 3</option>
-        <option value="medicament4">Médicament 4</option>
+<form method="POST" action="/prescription">
+    @csrf
+    <select name="medicaments[]" id="medicament" multiple required>
+        @foreach($medicaments as $medicament)
+            <option value="{{$medicament->nom}}">{{$medicament->nom}}</option>
+        @endforeach
     </select>
 
-    <!-- Période (jours) -->
+    <input type="hidden" name="patient_id" value="{{$id}}">
+
     <input type="number" id="periode" name="periode" placeholder="Période en jours" required>
 
-    <!-- Heure (intervalle en heures) -->
-    <input type="number" id="heure" name="heure" placeholder="Heure de prise" required>
 
-    <!-- Bouton de soumission -->
+    <input type="time" id="heure" name="heure" placeholder="Heure de prise" required>
+
     <button type="submit">Enregistrer</button>
 </form>
 <a href="#" class="precedent">Précédent</a>
+    <a href="{{route('medecin.prescriptions')}}" class="precedent">Liste des prescriptions</a>
 
 </div>
 

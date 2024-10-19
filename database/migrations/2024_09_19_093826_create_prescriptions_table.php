@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->string('medicament');
             $table->integer('periode');
-            $table->integer('heure');
+            $table->time('heure');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Consultation;
 use App\Models\Examen;
 use App\Models\Medecin;
+use App\Models\Medicament;
 use App\Models\Patient;
 use App\Models\Prescription;
 use App\Models\Signe;
@@ -34,9 +35,9 @@ class MedecinController extends Controller
             $signe['prenom'] = $patient->prenom;
 
             if ($consulation->isEmpty()) {
-                $signe['consulation'] = false;
+                $signe['consultation'] = false;
             }else{
-                $signe['consulation'] = true;
+                $signe['consultation'] = true;
             }
 
             if ($prescription->isEmpty()) {
@@ -49,7 +50,6 @@ class MedecinController extends Controller
             }else{
                 $signe['examen'] = true;
             }
-
         }
 
         return view('medecin.index', compact('signes'));
@@ -59,7 +59,6 @@ class MedecinController extends Controller
      * Show the form for creating a new resource.
      */
     public function consultation($id){
-
         return view('medecin.consultation', compact('id'));
     }
 
@@ -76,22 +75,68 @@ class MedecinController extends Controller
         ]);
         return redirect()->route('medecin.index')->with(['success' => 'Consultation reussie']);
     }
-    
+
     public function consultations(){
-        return view('medecin.liste-consultation');
+
+        $consultations = Consultation::orderBy('created_at', 'desc')->get();
+
+        foreach ($consultations as $consultation) {
+
+            $patient = Patient::find($consultation->patient_id);
+
+            $consultation['nom'] = $patient->nom;
+            $consultation['postnom'] = $patient->postnom;
+            $consultation['prenom'] = $patient->prenom;
+
+        }
+        return view('medecin.liste-consultation', compact('consultations'));
+
     }
 
     public function demandeExamen($id)
     {
-        Examen::create([
-            'patient_id' => $id,
-            'etat' => false,
-            'user_id' => Auth::user()->id,
+        $patient = Examen::where('patient_id', $id)->first();
+
+        if ($patient == null) {
+            Examen::create([
+                'patient_id' => $id,
+                'etat' => 'null',
+                'user_id' => Auth::user()->id,
+            ]);
+        }
+        return to_route('medecin.index');
+    }
+
+    public function prescription($id)
+    {
+        $medicaments = Medicament::all();
+        return view('medecin.prescription', compact('id', 'medicaments'));
+    }
+
+    public function store_prescription(Request $request){
+        Prescription::create([
+            'patient_id' => $request->patient_id,
+            'medicament' => json_encode($request->medicaments),
+            'periode' => $request->periode,
+            'heure'=> $request->heure,
+            'user_id' => Auth::user()->id
         ]);
+        return redirect()->route('medecin.prescription', $request->patient_id)->with(['success' => 'Prescription reussie']);
     }
     /**
      * Store a newly created resource in storage.
      */
+    public function prescriptions()
+    {
+        $presrciptions = Prescription::orderBy('created_at', 'desc')->get();
+        foreach ($presrciptions as $presrciption) {
+            $patient = Patient::find($presrciption->patient_id);
+            $presrciption['nom'] = $patient->nom;
+            $presrciption['prenom'] = $patient->prenom;
+            $presrciption['medicament'] = json_decode($presrciption->medicament);
+        }
+        return view('medecin.liste-prescription', compact('presrciptions'));
+    }
     public function store(Request $request)
     {
         //

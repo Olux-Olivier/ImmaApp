@@ -28,7 +28,9 @@ class MedicamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Medicament::create(['nom' => $request->medicament]);
+
+        return redirect()->route('medicament.create')->with(['success' => 'Medicament ajoute avce succes !']);
     }
 
     /**
