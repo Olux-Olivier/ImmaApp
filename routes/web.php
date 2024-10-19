@@ -79,3 +79,7 @@ Route::get('/users', function () {
 Route::get('/form-prescrire', function (){
     return view('medecin.prescription');
 });
+
+Route::get('/dash-medecin', function(){
+    return view('medecin.dashboard');
+});
