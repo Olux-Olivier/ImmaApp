@@ -84,3 +84,7 @@ Route::get('/form-prescrire', function (){
 
 
 Route::get('/make-call',[\App\Http\Controllers\TwilioController::class, 'makeCall']);
+
+Route::get('/dash-medecin', function(){
+    return view('medecin.dashboard');
+});
