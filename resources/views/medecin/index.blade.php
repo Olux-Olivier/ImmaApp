@@ -56,7 +56,7 @@
         </tbody>
     </table>
 
-    <a href="/consultations" style="color:black;font-family:'comfortaa';">Voir les consultations dejà faites</a>
+    <a href="{{ route('medecin.dashboard') }}">Retour</a>
     </div>
 
 

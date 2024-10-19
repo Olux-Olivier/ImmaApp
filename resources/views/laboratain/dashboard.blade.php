@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Medecin</title>
+    <title>Dashboard Labo</title>
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 </head>
 <body>
@@ -11,11 +11,10 @@
         <div class="bloc_menu">
             <h2>ImmApp</h2>
             <div>
-                <a href="{{ route('medecin.index')}}">Voir les prelements</a>
-                <a href="{{ route('medecin.consultations') }}">Voir les consultations</a>
-                <a href="{{ route('medecin.examen-attente') }}">Voir les examens attente</a>
-                <a href="{{ route('medecin.examen-fait') }}">Voir les examens faits</a>
-                <a href="{{route('medecin.prescriptions')}}">Voir les prescriptions</a>
+                <a href="{{ route('laboratain.index') }}">Voir examens non faits</a>
+                <a href="{{ route('laboratain.examen-fait')}}">Voir examens faits</a>
+                <a href="{{ route('laboratain.patient-positif') }}">Voir les patients positifs</a>
+                <a href="{{ route('laboratain.patient-negatif') }}">Voir les patients negatifs</a>
             </div>
         </div>
 

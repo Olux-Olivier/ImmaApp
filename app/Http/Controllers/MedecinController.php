@@ -83,10 +83,15 @@ class MedecinController extends Controller
         foreach ($consultations as $consultation) {
 
             $patient = Patient::find($consultation->patient_id);
-
+            $patient_examen = Examen::where('patient_id',$consultation->patient_id)->get();
             $consultation['nom'] = $patient->nom;
             $consultation['postnom'] = $patient->postnom;
             $consultation['prenom'] = $patient->prenom;
+            if($patient_examen->isEmpty()){
+                $consultation['examen'] = 'non';
+            }else{
+                $consultation['examen'] = 'oui';
+            }
 
         }
         return view('medecin.liste-consultation', compact('consultations'));
@@ -137,6 +142,33 @@ class MedecinController extends Controller
         }
         return view('medecin.liste-prescription', compact('presrciptions'));
     }
+
+    public function examen_attente(){
+        $examens = Examen::where('etat', '=', 'null')->get();
+        foreach($examens as $examen){
+            $patient = Patient::find($examen->patient_id);
+            $examen['nom'] = $patient->nom;
+            $examen['postnom'] = $patient->postnom;
+            $examen['prenom'] = $patient->prenom;
+            $examen['sexe'] = $patient->sexe;
+            $examen['age'] = $patient->age;
+        }
+        return view('medecin.examen-attente', compact('examens'));
+    }
+
+    public function examen_fait(){
+        $examens = Examen::where('etat', '!=', 'null')->get();
+        foreach($examens as $examen){
+            $patient = Patient::find($examen->patient_id);
+            $examen['nom'] = $patient->nom;
+            $examen['postnom'] = $patient->postnom;
+            $examen['prenom'] = $patient->prenom;
+            $examen['sexe'] = $patient->sexe;
+            $examen['age'] = $patient->age;
+        }
+        return view('medecin.examen-fait', compact('examens'));
+    }
+
     public function store(Request $request)
     {
         //

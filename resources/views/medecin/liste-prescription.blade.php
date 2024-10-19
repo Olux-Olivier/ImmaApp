@@ -44,6 +44,8 @@
             </tbody>
         </table>
     </div>
+    
+<a href="{{ route('medecin.dashboard') }}">Retour</a>
 @endsection
 
 @section('scripts')

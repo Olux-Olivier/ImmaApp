@@ -23,7 +23,7 @@ class AuthController extends Controller
                 return redirect()->intended(route('medecin.dashboard'));
             }
             if (Auth::user()->role == 4){
-                return redirect()->intended(route('laboratain.index'));
+                return redirect()->intended(route('laboratain.dashboard'));
             }
         }
         return back()->withErrors([

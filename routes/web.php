@@ -25,9 +25,14 @@ Route::resource('infirmier', InfirmierController::class);
 Route::get('/prelever/{id}', [InfirmierController::class, 'prelever'])->name('infirmier.prelever');
 
 Route::resource('laboratain', \App\Http\Controllers\LaboratainController::class);
-Route::get('/examen', function(){
-    return view('laboratain.examen');
-});
+Route::get('/examen/{id}', function($id){
+    return view('laboratain.examen', ['id' => $id]);
+})->name('laboratain.examiner');
+
+Route::get('/dashboard-laboratain', function(){ return view('laboratain.dashboard');})->name('laboratain.dashboard');
+Route::get('/examen-fait-laboratain',[\App\Http\Controllers\LaboratainController::class, 'examen_fait'])->name('laboratain.examen-fait');
+Route::get('/patient-positif',[\App\Http\Controllers\LaboratainController::class, 'patient_positif'])->name('laboratain.patient-positif');
+Route::get('/patient-negatif',[\App\Http\Controllers\LaboratainController::class, 'patient_negatif'])->name('laboratain.patient-negatif');
 
 Route::resource('medecin',\App\Http\Controllers\MedecinController::class);
 Route::get('/dashboard-medecin', function(){ return view('medecin.dashboard');})->name('medecin.dashboard');
@@ -38,6 +43,8 @@ Route::post('/prescription',[\App\Http\Controllers\MedecinController::class, 'st
 Route::get('/prescriptions', [\App\Http\Controllers\MedecinController::class, 'prescriptions'] )->name('medecin.prescriptions');
 Route::post('/prescription',[\App\Http\Controllers\MedecinController::class, 'store_prescription'] );
 Route::get('/demande-examen/{id}', [\App\Http\Controllers\MedecinController::class, 'demandeExamen'])->name('medecin.demandeExamen');
+Route::get('/examen-attente', [\App\Http\Controllers\MedecinController::class,'examen_attente'])->name('medecin.examen-attente');
+Route::get('/examen-fait',[\App\Http\Controllers\MedecinController::class, 'examen_fait'])->name('medecin.examen-fait');
 
 Route::get('/consultations',[\App\Http\Controllers\MedecinController::class, 'consultations'])->name('medecin.consultations');
 

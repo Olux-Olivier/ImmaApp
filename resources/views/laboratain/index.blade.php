@@ -41,14 +41,14 @@
                     <td>{{ $examen->frissons }}</td>
                     <td>{{ $examen->diarrhee }}</td>
                     <td>{{ \Carbon\Carbon::parse($examen->created_at)->format('d/m/Y') }}</td>
-                    <td><a href="/examen" class="btn btn-success btn-sm">Examiner</a></td>
+                    <td><a href="{{route('laboratain.examiner', $examen->patient_id)}}" class="btn btn-success btn-sm">Examiner</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
 
     </div>
+    <a href="{{ route('laboratain.dashboard') }}">Retour</a>
 @endsection
-
 @section('scripts')
 @endsection

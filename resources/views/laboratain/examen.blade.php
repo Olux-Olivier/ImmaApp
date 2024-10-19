@@ -11,15 +11,22 @@
 
 @section('content')
     @include('components.nav-bar')
+    @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
     <div class="bloc_form">
             <h4>Formulaire d'examen</h2>
-            <form>
+            
+            <form method="POST" action="/laboratain">
+                @csrf
                 <select name="symptomes" id="symptomes" required>
                     <option value="" disabled selected>Choisissez l'état de l'examen</option>
                     <option value="positif">Positif</option>
                     <option value="negatif">Négatif</option>
                 </select>
-
+                <input type="hidden" name="patient_id" value="{{$id}}">
                 <br><br>
 
                 <button type="submit">Envoyer</button>

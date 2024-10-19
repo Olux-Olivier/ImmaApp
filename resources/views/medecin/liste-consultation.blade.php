@@ -29,6 +29,7 @@
             </thead>
             <tbody>
             @foreach($consultations as $consultation)
+        
                 <tr>
                     <td>{{$consultation->nom}}</td>
                     <td>{{$consultation->postnom}}</td>
@@ -41,8 +42,11 @@
                     <td>{{$consultation->diarrhee}}</td>
                     <td>
                         <a href="{{ route('medecin.prescription', $consultation->patient_id) }}" class="btn btn-success btn-sm">Prescrire medicament</a>
-
-                        <a href="/demande-examen/{{$consultation->patient_id}}" class="btn btn-success btn-sm">Demander Examen</a>
+                        @if($consultation->examen == "oui")
+                            <button class="btn btn-warning btn-sm">Examen demandé</button>
+                        @else
+                            <a href="/demande-examen/{{$consultation->patient_id}}" class="btn btn-success btn-sm">Demander Examen</a>
+                        @endif
                 </tr>
 
 
@@ -52,6 +56,8 @@
             </tbody>
         </table>
     </div>
+    
+<a href="{{ route('medecin.dashboard') }}">Retour</a>
 @endsection
 
 @section('scripts')

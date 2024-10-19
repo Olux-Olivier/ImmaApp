@@ -15,9 +15,7 @@ class LaboratainController extends Controller
      */
     public function index()
     {
-        $examens = Examen::orderBy('created_at', 'desc')->get();
-
-
+        $examens = Examen::where('etat', '=', 'null')->orderBy('created_at', 'desc')->get();
         foreach ($examens as $examen) {
             $patient = Patient::find($examen->patient_id);
             $consultation = Consultation::where('patient_id', $examen->patient_id)->first();
@@ -34,6 +32,47 @@ class LaboratainController extends Controller
         return view('laboratain.index', compact('examens'));
     }
 
+    public function examen_fait(){
+        $examens = Examen::where('etat', '!=', 'null')->get();
+        foreach($examens as $examen){
+            $patient = Patient::find($examen->patient_id);
+            $examen['nom'] = $patient->nom;
+            $examen['postnom'] = $patient->postnom;
+            $examen['prenom'] = $patient->prenom;
+            $examen['sexe'] = $patient->sexe;
+            $examen['age'] = $patient->age;
+        }
+        return view('laboratain.examen-fait', compact('examens'));
+    }
+
+    public function patient_positif(){
+        $examens = Examen::where('etat', '=', 'positif')->get();
+        foreach($examens as $examen){
+            $patient = Patient::find($examen->patient_id);
+            $examen['nom'] = $patient->nom;
+            $examen['postnom'] = $patient->postnom;
+            $examen['prenom'] = $patient->prenom;
+            $examen['sexe'] = $patient->sexe;
+            $examen['age'] = $patient->age;
+        }
+
+        return view('laboratain.patient-positif', compact('examens'));
+    }
+
+    public function patient_negatif(){
+        $examens = Examen::where('etat', '=', 'negatif')->get();
+        foreach($examens as $examen){
+            $patient = Patient::find($examen->patient_id);
+            $examen['nom'] = $patient->nom;
+            $examen['postnom'] = $patient->postnom;
+            $examen['prenom'] = $patient->prenom;
+            $examen['sexe'] = $patient->sexe;
+            $examen['age'] = $patient->age;
+        }
+
+        
+        return view('laboratain.patient-negatif', compact('examens'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -47,7 +86,9 @@ class LaboratainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Examen::where('patient_id',$request->patient_id)
+            ->update(['etat' => $request->symptomes]);
+        return redirect()->route('laboratain.examiner', $request->patient_id)->with(['success' => 'Patient examine']);
     }
 
     /**
