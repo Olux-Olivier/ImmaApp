@@ -43,10 +43,24 @@ class PatientController extends Controller
         //
     }
 
-    public function show_all(){
-        $patients = Patient::orderBy('created_at', 'desc')->get();
-        $signes = Signe::orderBy('created_at', 'desc')->get();
+    public function show_all(Request $request){
+        
+        $patients = Patient::query();
+        $input = $request->nom;
 
+        if ($request->has('nom')) {
+            $nom = $request->input('nom');
+            $patients->where('nom', 'like', "%$nom%")
+                     ->orWhere('postnom', 'like', "%$nom%")
+                     ->orWhere('prenom', 'like', "%$nom%");
+        }
+        
+        // Récupérer les patients après avoir appliqué les filtres
+        $patients = $patients->get();
+
+        //$patients = Patient::orderBy('created_at', 'desc')->get();
+        $signes = Signe::orderBy('created_at', 'desc')->get();
+        
         foreach ($patients as $patient) {
             foreach ($signes as $signe) {
                 if($patient->id == $signe->patient_id){
@@ -54,7 +68,7 @@ class PatientController extends Controller
                 }
             }
         }
-        return view('patient.liste', compact('patients', ));
+        return view('patient.liste', compact('patients', 'input'));
     }
     /**
      * Show the form for editing the specified resource.

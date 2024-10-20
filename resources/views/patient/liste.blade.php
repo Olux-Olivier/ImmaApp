@@ -11,6 +11,11 @@
 
 @include('components.nav-bar')
 
+<form action="" method="get">
+    <input type="text" name="nom" value="{{old('nom', $input)}}" placeholder="Rechercher un patient"  />
+    <input type="submit"/>
+</form>
+
 <div class="container mt-5">
     @if(session('success'))
         <div class="alert alert-success">
@@ -66,6 +71,7 @@
         @endforeach
         </tbody>
     </table>
+    <a href="{{ route('receptioniste.dashboard')}}"> Retour</a>
 </div>
 @endsection
 @section('scripts')

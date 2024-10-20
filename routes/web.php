@@ -23,11 +23,16 @@ Route::get('/taches-reception', function () {
 
 Route::resource('infirmier', InfirmierController::class);
 Route::get('/prelever/{id}', [InfirmierController::class, 'prelever'])->name('infirmier.prelever');
+Route::get('/dashboard-infirmier',function(){
+    return view('infirmier.dashboard');
+})->name('infirmier.dashboard');
+Route::get('/infirmier-prelevement-attente',[InfirmierController::class, 'prelevement_attente'])->name('infirimier.prelevement-attente');
 
 Route::resource('laboratain', \App\Http\Controllers\LaboratainController::class);
 Route::get('/examen/{id}', function($id){
     return view('laboratain.examen', ['id' => $id]);
 })->name('laboratain.examiner');
+Route::get('/dashboard-receptionniste', function(){ return view('receptionniste.dashboard');})->name('receptioniste.dashboard');
 
 Route::get('/dashboard-laboratain', function(){ return view('laboratain.dashboard');})->name('laboratain.dashboard');
 Route::get('/examen-fait-laboratain',[\App\Http\Controllers\LaboratainController::class, 'examen_fait'])->name('laboratain.examen-fait');

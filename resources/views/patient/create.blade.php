@@ -106,9 +106,9 @@
 
     <div class="actions">
         <!-- Bouton de soumission -->
-      <button type="submit">Valider</button>
+      <button type="submit">Enregistrer</button>
       <button type="button">
-        <a href="{{ url('/taches-reception') }}">Précedent</a>
+        <a href="{{ route('receptioniste.dashboard') }}">Retour</a>
       </button>
     </div>
 

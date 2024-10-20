@@ -14,10 +14,10 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             if(Auth::user()->role == 1){
-                return redirect()->intended(route('receptioniste.index'));
+                return redirect()->intended(route('receptioniste.dashboard'));
             }
             if(Auth::user()->role == 2){
-                return redirect()->intended(route('patient.show_all'));
+                return redirect()->intended(route('infirmier.dashboard'));
             }
             if (Auth::user()->role == 3){
                 return redirect()->intended(route('medecin.dashboard'));

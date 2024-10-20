@@ -30,7 +30,7 @@
 
                 <div>
                     <input type="submit" value="Ajouter">
-                    <a href="{{ url('/taches-reception') }}">Retour accueil ?</a>
+                    <a href="{{ route('receptioniste.dashboard') }}">Retour</a>
                 </div>
 
             </form>
