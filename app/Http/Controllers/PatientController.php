@@ -70,6 +70,35 @@ class PatientController extends Controller
         }
         return view('patient.liste', compact('patients', 'input'));
     }
+
+    public function show_all_infirmier(Request $request){
+        $patients = Patient::query();
+
+        if ($request->has('nom')) {
+            $nom = $request->input('nom');
+            $patients->where('nom', 'like', "%$nom%")
+                     ->orWhere('postnom', 'like', "%$nom%")
+                     ->orWhere('prenom', 'like', "%$nom%");
+        }
+        
+        // Récupérer les patients après avoir appliqué les filtres
+        $patients = $patients->get();
+
+        //$patients = Patient::orderBy('created_at', 'desc')->get();
+        $signes = Signe::orderBy('created_at', 'desc')->get();
+        
+        foreach ($patients as $patient) {
+            foreach ($signes as $signe) {
+                if($patient->id == $signe->patient_id){
+                    $patient['prelever'] = 'oui';
+                }
+            }
+        }
+        
+
+        return view('patient.liste-patient-infirmier', compact('patients'));
+        
+    }
     /**
      * Show the form for editing the specified resource.
      */

@@ -45,23 +45,45 @@ section .bloc_menu div .exception{
 section .bloc_menu div .normal{
     font-size: 13px;
 }
-
 section .bloc_menu div .normal:hover{
     background: rgb(206, 206, 206);
     color: white;
     border-radius: 6px;
 }
 
-section .bloc_infos #bloc_statistiques{
-    background-color: rgb(255, 255, 255);
-    width: 90%;
-    padding: 80px;
-    margin-left: 200px;
-   margin-top: 120px;
-   border-radius: 5px;
-
-} 
-section .bloc_infos #profil{
-    margin-left: 570px;
-    margin-top: 20px;
+section .bloc_infos form{
+    text-align: right;
+    margin-right: 65px;
+    margin-top: 30px;
 }
+section .bloc_infos form input{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+section .bloc_infos form input[type="text"]{
+    outline: none;
+    font-family: "comfortaa";
+
+}
+section .bloc_infos form input[type="submit"]{
+    background: rgb(58, 107, 243);
+    color: white;
+}
+section .bloc_infos form input[type="submit"]:hover{
+    background: rgb(28, 64, 160);
+    color: white;
+}
+
+#title{
+    font-family: "comfortaa";
+}
+.retour{
+    text-decoration: underline;
+    color: black;
+    font-size: 18px;
+    font-family: "comfortaa";
+}
+
+
+

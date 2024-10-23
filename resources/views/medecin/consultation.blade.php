@@ -4,13 +4,11 @@
 @endsection
 
 @section('styles_sheet')
-    <link rel="stylesheet" href="{{ asset('css/tachesReception.css') }}">
     <link rel="stylesheet" href="{{ asset('css/FormPatient.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 @endsection
 
 @section('content')
-    @include('components.nav-bar')
     <div class="bloc_form">
         <form action="/consultation" method="POST">
         @csrf
@@ -69,7 +67,7 @@
         </div>
         
         <div class="actions">
-            <button type="submit">Soumettre</button>
+            <button type="submit">Enregistrer</button>
         </div>
         
     </form>

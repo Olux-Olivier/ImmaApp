@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Imma app | Liste patients</title>
+    <title> ImmApp | Prélevements attente</title>
   
     <link rel="stylesheet" href="{{ asset('css/liste-patient.css') }}">
 
@@ -106,16 +106,15 @@
         <div class="bloc_menu">
             <h2>ImmApp</h2>
             <div>
-                <a href="#" class="exception">Dashboard Reception</a>
-                <a href="{{ url('/medicament/create') }}" class="normal">Enregistrer un medicament</a>
-                <a href="{{ url('/patient/create')}}" class="normal">Enregistrer patient</a>
-                <a href="{{ route('patient.show_all') }}" class="normal">Voir liste patients</a>
+                <a href="#" class="exception">Dashboard Infirmerie</a>
+                <a href="{{ route('infirimier.prelevement-attente') }}" class="normal">Prelevement en attente</a>
+                <a href="{{ route('patient.show_all_infirmier') }}" class="normal">Liste de prelevements</a>
             </div>
         </div>
 
         <div class="bloc_infos">
             <form action="" method="get">
-                <input type="text" name="nom" value="{{ old('nom', $input) }}" placeholder="Rechercher un patient" />
+                <input type="text" name="nom" value="" placeholder="Rechercher un patient" />
                 <input type="submit"/>
             </form>
 
@@ -144,6 +143,7 @@
                     </thead>
                     <tbody>
                     @foreach ($patients as $patient)
+                        @if($patient['prelever'] === 'oui')
                         <tr>
                             <td>{{ $patient['nom'] }}</td>
                             <td>{{ $patient['postnom'] }}</td>
@@ -169,16 +169,12 @@
                                 @endif
                             </td>
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>
-                <a href="{{ route('receptioniste.dashboard') }}" class="retour">Précédent</a>
+                <a href="{{ route('infirmier.dashboard') }}" class="retour">Précédent</a>
             </div>
         </div>
-   </section>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> 
 </body>
 </html>
-
-
-

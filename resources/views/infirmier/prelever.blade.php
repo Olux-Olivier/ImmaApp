@@ -3,12 +3,9 @@
 @endsection
 
 @section('styles_sheet')
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/tachesReception.css') }}">
     <link rel="stylesheet" href="{{ asset('css/FormPrelevement.css') }}">
     @endsection
 @section('content')
-    @include('components.nav-bar')
 
 <div class="bloc_form">
     <h4>Prélever Signes</h4>
@@ -28,7 +25,7 @@
 
         <button type="submit">Enregistrer</button>
     </form>
-    <a href="#" class="precedent">Précédent</a>
+    <a href="{{ route('infirmier.dashboard') }}" class="precedent">Précédent</a>
 </div>
 
 

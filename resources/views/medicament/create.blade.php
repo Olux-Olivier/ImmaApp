@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ImmaApp | Enregistrer medicament</title>
-    <link rel="stylesheet" href="{{ asset('css/connexion.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/ajouterMedicament.css') }}">
 </head>
 <body>
-<div style="width: 70%; align-content: center;">
-    @if(session('success'))
-        <div style="background: green; color: white; display: inline-block">
-            {{ session('success') }}
-        </div>
-    @endif
-</div>
+
 <section>
 
         <div class="div_image">
@@ -36,5 +31,11 @@
             </form>
         </div>
     </section>
+    @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show d-flex justify-content-center mx-auto" role="alert" style="width: fit-content;">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+    @endif
 </body>
 </html>

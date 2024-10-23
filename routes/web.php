@@ -56,6 +56,8 @@ Route::get('/consultations',[\App\Http\Controllers\MedecinController::class, 'co
 Route::resource('receptioniste', \App\Http\Controllers\ReceptionisteController::class);
 Route::get('/listes-patients', [App\Http\Controllers\PatientController::class, 'show_all'])->name('patient.show_all');
 
+Route::get('/listes-patients-infirmier', [App\Http\Controllers\PatientController::class, 'show_all_infirmier'])->name('patient.show_all_infirmier');
+
 
 Route::get('/users', function () {
 

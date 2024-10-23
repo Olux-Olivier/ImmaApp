@@ -11,14 +11,15 @@
 @endsection
 
 @section('content')
-    @include('components.nav-bar')
   <div class="bloc_form">
     
     <form action="/patient" method="POST">
     @csrf
+    <h4>Identifier patient</h4>
     <div class="bloc_principal">
+      
       <div class="bloc_1">
-          <h4>Identifier patient</h4>
+          
           <!-- Nom -->
           <input type="text" id="nom" name="nom" required placeholder="Nom">
           @error('nom')
