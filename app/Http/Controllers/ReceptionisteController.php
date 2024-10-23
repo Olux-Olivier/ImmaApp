@@ -12,7 +12,7 @@ class ReceptionisteController extends Controller
      */
     public function index()
     {
-        return view('receptionniste.index');
+        return view('receptionniste.dashboard');
     }
 
     /**

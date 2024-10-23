@@ -17,7 +17,9 @@
             <th>Prenom</th>
             <th>Sexe</th>
             <th>Age</th>
+            <th>Etat examen</th>
             <th>Date demande</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -28,7 +30,10 @@
             <td>{{ $examen['prenom'] }}</td>
             <td>{{ $examen['sexe'] }}</td>
             <td>{{ $examen['age'] }}</td>
+            <td>{{ $examen['etat'] }}</td>
             <td>{{ $examen['created_at'] }}</td>
+            <td> <a href="{{ route('medecin.prescription', $examen['patient_id']) }}" class="btn btn-success btn-sm">Prescrire medicament</a>
+            </td>
         </tr>
         @endforeach
     </tbody>

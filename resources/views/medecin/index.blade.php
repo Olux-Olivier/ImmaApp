@@ -44,7 +44,6 @@
 
                     @if($signe->consultation)
                         <bouton  class="btn btn-success btn-sm">Deja consulter</bouton>
-                        <a href="{{ route('medecin.demandeExamen', $signe->patient_id) }}" class="btn btn-warning btn-sm">Demander Examen</a>
                         <a href="{{ route('medecin.consultation', $signe->patient_id) }}" class="btn btn-warning btn-sm">Consulter a nouveau</a>
                     @else
                         <a href="{{ route('medecin.consultation', $signe->patient_id) }}" class="btn btn-warning btn-sm">Consultation</a>

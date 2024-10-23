@@ -49,7 +49,7 @@
                         <div class="text-center">
                             <i class="fas fa-user-circle fa-3x mb-2"></i> <!-- Icône de profil -->
                             <h4>John Doe</h4> <!-- Remplacer par le nom réel de l'utilisateur -->
-                            <button class="btn btn-danger mt-2">Déconnexion</button>
+                            <button class="btn btn-danger mt-2"><a href="/logout" style="color:white;text-decoration:none"> Déconnexion</a></button>
                         </div>
             </div>
 
