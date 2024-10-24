@@ -16,7 +16,7 @@
             <div>
                 <a href="#" class="exception">Dashboard Infirmerie</a>
                 <a href="{{ route('infirimier.prelevement-attente') }}" class="normal">Prelevement en attente</a>
-                <a href="{{ route('patient.show_all') }}" class="normal">Liste de prelevements</a>
+                <a href="{{ route('patient.show_all_infirmier') }}" class="normal">Liste de prelevements</a>
                 
             </div>
         </div>

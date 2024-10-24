@@ -38,6 +38,7 @@
 
     .custom-table tbody tr {
         background-color: #f2f2f2;
+        font-family:"comfortaa";
     }
 
     .custom-table tbody tr:nth-child(even) {

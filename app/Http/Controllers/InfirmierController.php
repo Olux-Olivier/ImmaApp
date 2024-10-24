@@ -13,7 +13,12 @@ class InfirmierController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function dashboard(){
+        $patientsAvecSignes = Signe::pluck('patient_id')->toArray(); // Récupérer les IDs des patients avec des signes
+        $patients = Patient::whereNotIn('id', $patientsAvecSignes)->count();
 
+        return view('infirmier.dashboard');
+    }
     public function prelevement_attente(Request $request){
 
         $patientsAvecSignes = Signe::pluck('patient_id')->toArray(); // Récupérer les IDs des patients avec des signes
@@ -75,7 +80,7 @@ class InfirmierController extends Controller
             'user_id' => $request->user_id,
             'taille' => $request->taille
         ]);
-        return redirect()->intended(route('patient.show_all'))
+        return redirect()->intended(route('patient.dashboard'))
             ->with('success', 'Patient prelever');
     }
 

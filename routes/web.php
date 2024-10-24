@@ -23,9 +23,7 @@ Route::get('/taches-reception', function () {
 
 Route::resource('infirmier', InfirmierController::class);
 Route::get('/prelever/{id}', [InfirmierController::class, 'prelever'])->name('infirmier.prelever');
-Route::get('/dashboard-infirmier',function(){
-    return view('infirmier.dashboard');
-})->name('infirmier.dashboard');
+Route::get('/dashboard-infirmier',[InfirmierController::class, 'dashboard'])->name('infirmier.dashboard');
 Route::get('/infirmier-prelevement-attente',[InfirmierController::class, 'prelevement_attente'])->name('infirimier.prelevement-attente');
 
 Route::resource('laboratain', \App\Http\Controllers\LaboratainController::class);

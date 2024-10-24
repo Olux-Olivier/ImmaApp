@@ -39,6 +39,7 @@
 
     .custom-table tbody tr {
         background-color: #f2f2f2;
+        font-family:"comfortaa";
     }
 
     .custom-table tbody tr:nth-child(even) {
@@ -155,7 +156,7 @@
             <td>{{$consultation->frissons}}</td>
             <td>{{$consultation->diarrhee}}</td>
             <td>
-                <a href="{{ route('medecin.prescription', $consultation->patient_id) }}" class="btn-success">Prescrire médicament</a>
+                <a href="{{ route('medecin.prescription', $consultation->patient_id) }}" class="btn-success">Prescrire</a>
                 @if($consultation->examen == "oui")
                     <button class="btn-warning">Examen demandé</button>
                 @else
