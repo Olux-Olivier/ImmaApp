@@ -4,13 +4,10 @@
 @endsection
 
 @section('styles_sheet')
-    <link rel="stylesheet" href="{{ asset('css/tachesReception.css') }}">
     <link rel="stylesheet" href="{{ asset('css/FormPrescription.css') }}">
 @endsection
 
 @section('content')
-
-    @include('components.nav-bar')
 
 <div class="bloc_form">
 <h4>Formulaire de prescription</h4>
@@ -31,7 +28,7 @@
 
     <button type="submit">Enregistrer</button>
 </form>
-<a href="#" class="precedent">Précédent</a>
+<a href="{{ route('medecin.dashboard') }}" class="precedent">Précédent</a>
     <a href="{{route('medecin.prescriptions')}}" class="precedent">Liste des prescriptions</a>
 
 </div>
